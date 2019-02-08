@@ -1,14 +1,37 @@
-<body class="body rounded-top">
-  <div class="content-canvas">
-    <canvas id="canvas" width="40" height="20"></canvas>
-  </div>
+<body>
+    
+        <img *ngIf="loading" src="../../assets/loading.gif" class="loading" alt="">
+    <app-header></app-header>
+    <div class="imginline">
 
-  <div *ngFor="let cliente of userClit">
-    {{ cliente.name }}
-    <div *ngFor="let usu of cliente.checkDTO">
-        {{ usu.min}}
-        {{ usu.max}}
+        <div class="canvas">
+            <canvas id="canvas"></canvas>
+        </div>
+
+        <div id="prev" class="content-img">
+            <img src="../../assets/next.png" width="40" height="30" class="img-previous">
+        </div>
+
+        <div id="primerTrimestre" class="canvas2">
+            <canvas id="canvasBarrasPrimer"></canvas>
+        </div>
+
+        <div id="segundoTrimestre" class="canvas2 segundoTri">
+            <canvas id="canvasBarrasSegundo"></canvas>
+        </div>
+
+        <div id="tercerTrimestre" class="canvas2 segundoTri">
+            <canvas id="canvasBarrasTercer"></canvas>
+        </div>
+
+        <div id="cuartoTrimestre" class="canvas2 segundoTri">
+            <canvas id="canvasBarrasCuarto"></canvas>
+        </div>
+
+        <div id="next" class="content-img">
+            <img src="../../assets/next.png" width="40" height="30" class="img-next">
+        </div>
+
     </div>
 
-  </div>
 </body>

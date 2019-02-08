@@ -3,7 +3,7 @@
   <ngx-ui-loader></ngx-ui-loader>
   <ngx-alerts></ngx-alerts>
   <div class="img-huella">
-    
+
     <div *ngIf="contentBusqueda" id="contentBusqueda" class="form-control contenedor-busqueda ">
       <div class="col-md-4 label-name">
         <input class="form-control txt-name" autofocus type="text" [(ngModel)]="term" (ngModelChange)="saverange(term);"
@@ -90,34 +90,6 @@
               </tr>
             </tbody>
           </table>
-
-          <table *ngIf="tabAcction" class="table table-bordered table-striped">
-              <thead class="tr-body">
-                <tr>
-  
-                  <th class="txt-table nombre">#EMP</th>
-                  <th class="txt-table fecha">NOMBRE</th>
-                  <th class="txt-table hora-entrada">ESTATUS</th>
-                  <th class="txt-table hora-salida">ACCION</th>
-                </tr>
-              </thead>
-              <tbody >
-                  <tr *ngFor="let cliente of clientes | filter:term ">
-                  <td class="txt-userID">
-                    <input type="number" id="userID" value="{{cliente.userID}}">
-                  </td>
-                  <td class="txt-usuario">{{ cliente.badgerNumber }}</td>
-                  <td class="txt-usuario">{{ cliente.name }}</td>
-                  <td class="txt-usuario">{{ cliente.title }}</td>
-                  <td class="txt-usuario">
-                    <div>
-                      <img src="../../assets/settings.svg" alt="" class="img-settings">
-                      <img src="../../assets/trash.svg" alt="" class="img-trash">
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
         </div>
       </div>
     </div>

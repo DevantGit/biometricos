@@ -35,29 +35,27 @@ export class ClientesComponent implements OnInit {
   dateTwo: string;
   userIDValue: string;
   imgSerach: boolean = false;
-  tabAcction: boolean;
 
   constructor(private clienteService: ClienteService, private ngxService: NgxUiLoaderService,private alertService: AlertService) { }
 
   ngOnInit() {
     this.nuevaConsulta;
     this.contentBusqueda;
-    // this.ngxService.start(); 
-    this.tab = false;
+    this.ngxService.start(); 
+    this.tab;
     this.imgSerach;
     this.busqueda;
-    this.tabAcction = true;
 
-     this.cargarUsuarios();
+    this.cargarUsuarios();
     
   }
 
   public cargarUsuarios(){
-    this.tab=false;
+    this.tab=true;
     this.busqueda=false;
     this.clienteService.getClientes().subscribe( data => {
       this.clientes = data.body;
-      console.log(this.clientes);
+      console.log(data.status);
       this.ngxService.stop();
     },error=>{
       this.alertService.danger('Rango de fechas seleccionadas es invalida');

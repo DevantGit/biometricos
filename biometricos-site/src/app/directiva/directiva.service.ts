@@ -14,12 +14,6 @@ export class DirectivaService {
 
   constructor(private http: HttpClient) { }
 
-  dailyForeCast() {
-    console.log("Entro a request")
-    return this.http.get('/data/2.5/forecast/daily?id=524901&appid=b1b15e88fa797225412429c1c50c122a1')
-      .map(result => result);
-  }
-
   getClienteDateByRank(data): Observable<Cliente> {
     let body = JSON.stringify(data);
     const headers =
@@ -27,5 +21,25 @@ export class DirectivaService {
 
     return this.http.post<Cliente>(this.urlPostDate, body, { headers: headers })
       .pipe(map(res => res));
+  }
+
+  getInfoUserDevantAsistencia(): Observable<Object>{
+    return this.http.get("http://localhost:8081/contro-asistencia-devant/user-devant-asistencia-mes");
+  }
+
+  getInfoUserPrimerTrimestre(): Observable<Object>{
+    return this.http.get('http://localhost:8081/contro-asistencia-devant/user-devant/primer-trimestre');
+  }
+
+  getInfoUserSegundoTrimestre(): Observable<Object>{
+    return this.http.get('http://localhost:8081/contro-asistencia-devant/user-devant/segundo-trimestre');
+  }
+
+  getInfoUserTercerTrimestre(): Observable<Object>{
+    return this.http.get('http://localhost:8081/contro-asistencia-devant/user-devant/tercer-trimestre');
+  }
+
+  getInfoUserCuartoTrimestre(): Observable<Object>{
+    return this.http.get("http://localhost:8081/contro-asistencia-devant/user-devant/cuarto-trimestre");
   }
 }

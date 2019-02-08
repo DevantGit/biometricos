@@ -7,8 +7,59 @@
     width:100%;
   }
 
-  .content-canvas{
-    width: 50%;
-    height: 50%;
+  .loading{
+    position: absolute;
+    height: 100%;
+    width:100%;
   }
+
+  .imimginline {
+    position: relative;
+  }
+
+  .canvas{
+    width: 40%;
+    height: 50%;
+    display: inline-block;
+    margin-top: 60px;
+  }
+
+  .canvas2{
+    width: 48%;
+    height: 50%;
+    margin-left: 3%;
+    display: inline-block;
+  }
+
+  .content-img{
+    width: 5%;
+    position: absolute;
+    height: 50%;
+    display: inline-block;
+    top: 25%;
+  }
+
+  .content-img .img-previous{
+    cursor: pointer;
+    opacity: 0.3;
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+  }
+
+  .content-img .img-next{
+    cursor: pointer;
+    opacity: 0.3;
+  }
+
+  .segundoTri{
+    display: none;
+  }
+
+  .tercerTri{
+    display: none;
+  }
+
+
   
