@@ -23,23 +23,73 @@ export class DirectivaService {
       .pipe(map(res => res));
   }
 
-  getInfoUserDevantAsistencia(): Observable<Object>{
-    return this.http.get("http://localhost:8081/contro-asistencia-devant/user-devant-asistencia-mes");
+  // ASISTENCIA AL MES POR DEPARTAMENTOS
+
+  getUserDevantAsistenciaMesFabrica(): Observable<Object>{
+    return this.http.get("http://localhost:8081/contro-asistencia-devant/user-devant-asistencia-mes-fabrica");
   }
 
-  getInfoUserPrimerTrimestre(): Observable<Object>{
-    return this.http.get('http://localhost:8081/contro-asistencia-devant/user-devant/primer-trimestre');
+  getUserDevantAsistenciaMesAdministracion(): Observable<Object>{
+    return this.http.get("http://localhost:8081/contro-asistencia-devant/user-devant-asistencia-mes-administracion");
   }
 
-  getInfoUserSegundoTrimestre(): Observable<Object>{
-    return this.http.get('http://localhost:8081/contro-asistencia-devant/user-devant/segundo-trimestre');
+  getUserDevantAsistenciaMesAdmin(): Observable<Object>{
+    return this.http.get("http://localhost:8081/contro-asistencia-devant/user-devant-asistencia-mes-admin");
   }
 
-  getInfoUserTercerTrimestre(): Observable<Object>{
-    return this.http.get('http://localhost:8081/contro-asistencia-devant/user-devant/tercer-trimestre');
+
+  // DEPARTAMENTO DE FABRICA REPORTES TRIMESTRALES
+  getInfoReporteFabricaSwPrimer(): Observable<Object>{
+    return this.http.get('http://localhost:8081/contro-asistencia-devant/user-devant/info-resporte-fabrica-software/primer-trimestre');
   }
 
-  getInfoUserCuartoTrimestre(): Observable<Object>{
-    return this.http.get("http://localhost:8081/contro-asistencia-devant/user-devant/cuarto-trimestre");
+  getInfoReporteFabricaSwSegundo(): Observable<Object>{
+    return this.http.get('http://localhost:8081/contro-asistencia-devant/user-devant/info-resporte-fabrica-software/segundo-trimestre');
   }
+
+  getInfoReporteFabricaSwTercer(): Observable<Object>{
+    return this.http.get('http://localhost:8081/contro-asistencia-devant/user-devant/info-resporte-fabrica-software/tercer-trimestre');
+  }
+
+  getInfoReporteFabricaSwCuarto(): Observable<Object>{
+    return this.http.get('http://localhost:8081/contro-asistencia-devant/user-devant/info-resporte-fabrica-software/cuarto-trimestre');
+  }
+
+
+  //DEPARTAMENTO DE ADMINSTRACION REPORTES TRIMESTRALES
+
+  getInfoReporteAdministracion(): Observable<Object>{
+    return this.http.get('http://localhost:8081/contro-asistencia-devant/user-devant/info-resporte-administracion/primer-trimestre');
+  }
+
+  getInfoReporteAdministracionSegundoTri(): Observable<Object>{
+    return this.http.get('http://localhost:8081/contro-asistencia-devant/user-devant/info-resporte-administracion/segundo-trimestre');
+  }
+
+  getInfoReporteAdministracionTercerTri(): Observable<Object>{
+    return this.http.get('http://localhost:8081/contro-asistencia-devant/user-devant/info-resporte-administracion/tercer-trimestre');
+  }
+
+  getInfoReporteAdministracionCuartoTri(): Observable<Object>{
+    return this.http.get('http://localhost:8081/contro-asistencia-devant/user-devant/info-resporte-administracion/cuarto-trimestre');
+  }
+
+  // DEPARTAMENTO DE ACCESO TOTAL REPORTES TRIMESTRALES
+
+  getInfoReporteAdminPrimerTri(): Observable<Object>{
+    return this.http.get('http://localhost:8081/contro-asistencia-devant/user-devant/info-resporte-admin/primer-trimestre');
+  }
+
+  getInfoReporteAdminSegundoTri(): Observable<Object>{
+    return this.http.get('http://localhost:8081/contro-asistencia-devant/user-devant/info-resporte-admin/segundo-trimestre');
+  }
+
+  getInfoReporteAdminTercerTri(): Observable<Object>{
+    return this.http.get('http://localhost:8081/contro-asistencia-devant/user-devant/info-resporte-admin/tercer-trimestre');
+  }
+
+  getInfoReporteAdminCuartoTri(): Observable<Object>{
+    return this.http.get('http://localhost:8081/contro-asistencia-devant/user-devant/info-resporte-admin/cuarto-trimestre');
+  }
+
 }

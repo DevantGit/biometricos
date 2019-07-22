@@ -1,48 +1,176 @@
-  *{
-    margin: 0;
-    padding: 0;
-  }
-  .nav-headers {
-    background: #182652;
-    width: 100%;
-  }
-  
-  .div-barrera{
-    background-color: #00A0E0;
-    width: 100%;
-    height: 5px;
-  }
+.nav-headers {
+  background: #182652;
+  width: 100%;
+}
 
-  .cabecera-head {
-    position: relative;
-    background: #DDD;
-  }
+.div-barrera {
+  background-color: #00A0E0;
+  width: 100%;
+  height: 5px;
+}
 
-  .txt-dev {
-    width: 90px;
-    margin-top: 5px;
-    float: right;
-  }
-  .txt-dev .exit{
-    cursor: pointer;
-  }
-  
-  .content{
-    width: 150px;
-    float: right;
-  }
+.cabecera-head {
+  position: relative;
+  background: #DDD;
+}
 
-  .txt-user{
-    color: #00A0E0;
-    font-weight: normal;
-    text-align: right;
-    margin: 5%;
-  }
-  .txt-check{
-    font-weight: normal;
-    margin: 5%;
-    color: #717171;
-    text-align: center;
-  }
+.txt-dev {
+  width: 90px;
+  margin-top: 5px;
+  float: right;
+}
 
- 
+.txt-dev .exit {
+  cursor: pointer;
+}
+
+.content {
+  width: 150px;
+  float: right;
+}
+
+.txt-user {
+  color: #00A0E0;
+  font-weight: normal;
+  text-align: right;
+  margin: 5%;
+}
+
+.txt-check {
+  font-weight: normal;
+  margin: 5%;
+  color: #717171;
+  text-align: center;
+}
+
+.main-header {
+  height: 52px;
+  background-color: #1e316d;
+  border-bottom: 7px solid #00A0E0;
+  position: fixed;
+  width: 100%;
+  min-width: 1100px;
+  top: 0px;
+  left: 0px;
+  z-index: 15;
+}
+
+.main-header-button {
+  height: 26px;
+  font-family: Century Gothic;
+  font-weight: bold;
+  font-size: 21px;
+  text-align: center;
+  float: right;
+  color: #717171;
+  cursor: pointer;
+  margin: 15px;
+}
+
+.main-header-button-desactive {
+  color: #00A0E0;
+  cursor: default;
+}
+
+.screen-logo-container {
+  position: fixed;
+  top: 17px;
+  left: -4px;
+  box-shadow: 13px 8px 11px rgb(0, 0, 0, 0.16);
+  z-index: 20;
+}
+
+.screen-logo {
+  background: url(../../assets/LOGO_DEVANT.svg);
+  background-repeat: no-repeat;
+  background-color: #182652;
+  background-size: 70%;
+  background-position: center;
+  width: 325px;
+  height: 75px;
+  position: fixed;
+  border-radius: 0px 12px 12px 0px;
+  box-shadow: 13px 8px 11px rgb(0, 0, 0, 0.16);
+  z-index: 20;
+}
+
+.menu-container {
+  height: 109px;
+  width: 100%;
+  background-color: #FFFFFF;
+  position: relative;
+  margin-top: 59px;
+  z-index: 10;
+}
+
+.menu-subcontainer {
+  background-color: rgba(228, 228, 228, .35);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 87px;
+  width: 95%;
+  border-radius: 15px;
+}
+
+.back-icon-bs {
+  background: url(../../assets/left-arrow.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 51px;
+  height: 40px;
+  position: absolute;
+  top: 29px;
+  left: 25px;
+  cursor: pointer;
+}
+
+.easy-autocomplete > .search-field {
+  width: calc(101.5% - 28px);
+  height: 100%;
+  top: 0px;
+  left: 0px;
+}
+.easy-autocomplete input {
+  border-color: #ccc;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1) inset;
+  color: #555;
+  float: none;
+  padding: 6px 12px;
+}
+.search-field {
+  width: 90%;
+  height: 48%;
+  font-family: Roboto-Regular;
+  position: absolute;
+  top: 25px;
+  left: 85.45px;
+  border: none;
+  padding: 0px 10px !important;
+  text-transform: uppercase;
+  box-shadow: none !important;
+  color: #000 !important;
+  font-size: 18px;
+}
+input {
+  border: solid 2px #E4E4E4 !important;
+}
+input, select {
+  vertical-align: middle;
+}
+
+.search-icon {
+  background: url(../../assets/LUPA.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 39px;
+  height: 39px;
+  position: absolute;
+  top: 29px;
+  left: calc(95.5% + 25px);
+  cursor: pointer;
+}

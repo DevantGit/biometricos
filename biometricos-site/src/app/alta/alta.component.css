@@ -33,6 +33,9 @@
       top: 60%;
   }
 
+  .contenedor-personal{
+    height: 250px;
+  }
   .content-plus .img-add{
       width: 13%;
       cursor: pointer;
@@ -45,7 +48,6 @@
   }
 
   .content-div{
-    margin-top: 10px;
     background-color: #F6F6F6;
 }
 
@@ -61,13 +63,14 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    height: 40px;
+    height: 52px;
   }
 
   .info-personal .txt-info{
       text-align: center;
       font-weight: bolder;
-      padding-top: 5px;
+      padding-top: 10px;
+      font-size: 22px;
       color: #646263;
   }
 
@@ -108,6 +111,20 @@
     float: left;
   }
 
+  .txt-name{
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  input.fecha {
+    
+    background: url(../../assets/calendar.svg);
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-color: #E4E4E4;
+    width: 200px;
+}
+
   .label-anio{
     width: 13%;
     height: 30px;
@@ -115,7 +132,7 @@
     background: #F6F6F6;
   }
   .content-datos2 .txt-sexo{
-      margin-left: 10px;
+      margin-left: 65px;
   }
 
   .content-datos2 .select-info{
@@ -126,7 +143,7 @@
   }
 
   .content-datos2 .no-imss{
-    margin-left: 10px;
+    margin-left: 30px;
 }
 
 .content-datos2 .label-imss{
@@ -136,10 +153,19 @@
     background: #F6F6F6;
 }
 
+.content-3 .txt-ingreso{
+  margin-left: 5%;
+}
+
+.content-3 .txt-area{
+  margin-left: 10px;
+}
+
+
 .label-casa{
     width: 20%;
     height: 30px;
-    margin-left: 10px;
+    margin-left: 25px;
     background: #F6F6F6;
 }
 
@@ -147,22 +173,34 @@
     margin-left: 10px;
 }
 
+.content-3 .txt-puesto{
+  margin-left: 35px;
+}
+
+.content-3 .label-puesto{
+  margin-left: 10px;
+}
+
 .label-celular{
     width: 20%;
     height: 30px;
-    margin-left: 10px;
+    margin-left: 25px;
     background: #F6F6F6;
+}
+
+.txt-celular{
+  margin-left: 50px;
 }
 
 .label-id{
     width: 20%;
     height: 30px;
-    margin-left: 10px;
     background: #F6F6F6;
 }
 
 .content-3{
     margin-top: 10pX;
+    width: 100%;
 }
 
 .info-acceso{
@@ -182,10 +220,18 @@
     font-size: 18px;
     font-weight: bolder;
     cursor: pointer;
+    height: 50px;
+}
+
+.btn-guardar:hover{
+  background-color: #182652;
+  border: solid 2px #FFFFFF;
+  color: #FFFFFF;
 }
 
 .content-guardar{
-    padding-top: 7%;
+  padding-top: 5%;
+  
 }
 
 .img-close{
@@ -194,4 +240,181 @@
     margin: 5px 5px;
     width: 15px;
     cursor: pointer;
+}
+
+.menu-container {
+    height: 50px;
+    width: 100%;
+    background-color: #FFFFFF;
+    position: relative;
+    margin-top: 59px;
+    z-index: 10;
+  }
+  
+  .menu-subcontainer {
+    background-color: rgba(228, 228, 228, .35);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 87px;
+    width: 95%;
+    border-radius: 15px;
+  }
+  
+  .back-icon-bs {
+    background: url(../../assets/left-arrow.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 51px;
+    height: 40px;
+    position: absolute;
+    top: 29px;
+    left: 25px;
+    cursor: pointer;
+  }
+  
+  .easy-autocomplete > .search-field {
+    width: calc(101.5% - 28px);
+    height: 100%;
+    top: 0px;
+    left: 0px;
+  }
+  .easy-autocomplete input {
+    border-color: #ccc;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1) inset;
+    color: #555;
+    float: none;
+    padding: 6px 12px;
+  }
+  .search-field {
+    width: 80%;
+    height: 48%;
+    font-family: Roboto-Regular;
+    position: absolute;
+    top: 25px;
+    left: 85.45px;
+    border: none;
+    padding: 0px 10px !important;
+    text-transform: uppercase;
+    box-shadow: none !important;
+    color: #000 !important;
+    font-size: 18px;
+  }
+  input {
+    border: solid 2px #E4E4E4 !important;
+  }
+  input, select {
+    vertical-align: middle;
+  }
+  
+  .search-icon {
+    background: url(../../assets/LUPA.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 39px;
+    height: 39px;
+    position: absolute;
+    top: 29px;
+    left: calc(87% + 25px);
+    cursor: pointer;
+  }
+  
+  .alta-icon {
+    background: url(../../assets/Grupo_1193.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 39px;
+    height: 39px;
+    position: absolute;
+    top: 29px;
+    left: calc(93% + 25px);
+    cursor: pointer;
+  }
+  
+  .view-logo-container {
+    font-family: Century Gothic;
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #00A0E0;
+    width: 365px;
+    height: 47px;
+    position: absolute;
+    z-index: 10;
+  }
+  
+  .view-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+  }
+  
+  .view-logo-frame {
+  position: absolute;
+  height: 7px;
+  background-color: #00A0E0;
+  min-width: 850px;
+  width: 93.1%;
+  margin-top: 15.5px;
+  z-index: 5;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  }
+  
+  .form-container, q-container {
+  float: left;
+  background-color: #E4E4E4;
+  border-radius: 10px;
+  min-width: 850px;
+  width: 95%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  }
+  .form-container {
+  padding-bottom: 9px;
+  }
+  
+  .form-card {
+  float: left;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  width: 98%;
+  opacity: 35%;
+  }
+
+  select {
+    font-size: 18px;
+    background-color: #E4E4E4;
+    height: 36px;
+    border: none;
+    padding: 0px 10px;
+}
+
+.combo {
+  background-image: url(../../assets/Trazado_1691.svg);
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+}
+
+select#sexo {
+  margin-left: 14px;
+  background-color: #E4E4E4;
+  width: 15%;
+  font-weight: lighter;
 }

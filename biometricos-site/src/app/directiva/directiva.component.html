@@ -1,37 +1,71 @@
-<body>
-    
-        <img *ngIf="loading" src="../../assets/loading.gif" class="loading" alt="">
-    <app-header></app-header>
-    <div class="imginline">
+<app-header></app-header>
+<!-- <img *ngIf="loading" src="../../assets/loading.gif" class="loading" alt=""> -->
+<div class="menu-container">
+    <div class="menu-subcontainer">
+      <input class="search-field form-control" autofocus type="text" [(ngModel)]="term" (ngModelChange)="saverange(term);"
+            name="term" placeholder="Búsqueda por nombre" aria-label="Search">
+      <input id="searchId" type="hidden" />
+      <div class="search-icon" ></div>
+      <div class="alta-icon" >
+        <select id="departamento" class="combo" (change)="cambioDepartamento()">
+            <option value="fabrica" selected >FABRICA DE SW</option>
+            <option value="adminstracion">ADMINSTRACION</option>
+            <option value="infrestru">INFRESTRUCTURA</option>
+          </select>
+      </div>
+    </div>
+  </div>
 
-        <div class="canvas">
-            <canvas id="canvas"></canvas>
-        </div>
+<div class="view-logo-container">
+    <div class="view-logo">REPORTE DE RESGISTROS</div>
+</div>
+<div class="view-logo-frame"></div>
+<div class="form-container">
 
-        <div id="prev" class="content-img">
-            <img src="../../assets/next.png" width="40" height="30" class="img-previous">
-        </div>
+    <div class="form-card">
 
-        <div id="primerTrimestre" class="canvas2">
-            <canvas id="canvasBarrasPrimer"></canvas>
-        </div>
+        <div class="imginline">
 
-        <div id="segundoTrimestre" class="canvas2 segundoTri">
-            <canvas id="canvasBarrasSegundo"></canvas>
-        </div>
+            <div class="canvas">
+                <canvas *ngIf="canvasFabrica" id="canvasFabrica"></canvas>
+                <canvas *ngIf="canvasInfre" id="canvasInfre"></canvas>
+                <canvas *ngIf="canvasAdministracion" id="canvasAdministracion"></canvas>
+            </div>
 
-        <div id="tercerTrimestre" class="canvas2 segundoTri">
-            <canvas id="canvasBarrasTercer"></canvas>
-        </div>
+            <div id="prev" class="content-img">
+                <img src="../../assets/next.png" width="40" height="30" class="img-previous">
+            </div>
 
-        <div id="cuartoTrimestre" class="canvas2 segundoTri">
-            <canvas id="canvasBarrasCuarto"></canvas>
-        </div>
+            <div id="primerTrimestre" class="canvas2">
+                <canvas *ngIf="fabricaPrimer" id="canvasFabricaPrimer"></canvas>
+                <canvas *ngIf="infrePrimer" id="canvasInfrePrimer"></canvas>
+                <canvas *ngIf="adminPrimer" id="canvasAdminPrimer"></canvas>
+            </div>
 
-        <div id="next" class="content-img">
-            <img src="../../assets/next.png" width="40" height="30" class="img-next">
+            <div id="segundoTrimestre" class="canvas2 segundoTri">
+                <canvas *ngIf="fabricaSegundo" id="canvasFabricaSegundo"></canvas>
+                <canvas *ngIf="infreSegundo" id="canvasInfreSegundo"></canvas>
+                <canvas *ngIf="adminSegundo" id="canvasAdminSegundo"></canvas>
+            </div>
+
+            <div id="tercerTrimestre" class="canvas2 segundoTri">
+                <canvas *ngIf="fabricaTercer" id="canvasFabricaTercer"></canvas>
+                <canvas *ngIf="infreTercer" id="canvasInfreTercer"></canvas>
+                <canvas *ngIf="adminTercer" id="canvasAdminTercer"></canvas>
+            </div>
+
+            <div id="cuartoTrimestre" class="canvas2 segundoTri">
+                <canvas *ngIf="fabricaCuarto" id="canvasFabricaCuarto"></canvas>
+                <canvas *ngIf="infreCuarto" id="canvasInfreCuarto"></canvas>
+                <canvas *ngIf="adminCuarto" id="canvasAdminCuarto"></canvas>
+            </div>
+
+            <div id="next" class="content-img">
+                <img src="../../assets/next.png" width="40" height="30" class="img-next">
+            </div>
+
         </div>
 
     </div>
 
-</body>
+</div>

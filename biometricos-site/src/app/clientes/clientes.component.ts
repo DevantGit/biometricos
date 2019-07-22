@@ -55,7 +55,7 @@ export class ClientesComponent implements OnInit {
     this.busqueda=false;
     this.clienteService.getClientes().subscribe( data => {
       this.clientes = data.body;
-      console.log(data.status);
+      console.log(this.clientes);
       this.ngxService.stop();
     },error=>{
       this.alertService.danger('Rango de fechas seleccionadas es invalida');

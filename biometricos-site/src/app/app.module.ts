@@ -19,11 +19,12 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { AlertModule } from 'ngx-alerts';
 import { HightChartsComponent } from './hight-charts/hight-charts.component';
 import { patch } from 'webdriver-js-extender';
+import { AltaService } from './alta/alta.service';
 
 const routes: Routes = [
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
-  {path: 'directiva', component: DirectivaComponent},
-  {path: 'inicio', component: FooterComponent},
+  {path: 'dashboard-asistencia', component: DirectivaComponent},
+  {path: 'inicio', component: InicioAppComponent},
   {path: 'clientes', component: ClientesComponent},
   {path: 'alta', component: AltaComponent },
   {path: 'chart', component: HightChartsComponent} 
@@ -51,7 +52,7 @@ const routes: Routes = [
     AlertModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
-  providers: [ClienteService, DirectivaService],
+  providers: [ClienteService, DirectivaService, AltaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
