@@ -1,0 +1,48 @@
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  .nav-headers {
+    background: #182652;
+    width: 100%;
+  }
+  
+  .div-barrera{
+    background-color: #00A0E0;
+    width: 100%;
+    height: 5px;
+  }
+
+  .cabecera-head {
+    position: relative;
+    background: #DDD;
+  }
+
+  .txt-dev {
+    width: 90px;
+    margin-top: 5px;
+    float: right;
+  }
+  .txt-dev .exit{
+    cursor: pointer;
+  }
+  
+  .content{
+    width: 150px;
+    float: right;
+  }
+
+  .txt-user{
+    color: #00A0E0;
+    font-weight: normal;
+    text-align: right;
+    margin: 5%;
+  }
+  .txt-check{
+    font-weight: normal;
+    margin: 5%;
+    color: #717171;
+    text-align: center;
+  }
+
+ 

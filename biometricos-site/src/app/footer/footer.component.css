@@ -1,0 +1,91 @@
+
+.body {
+  position: absolute;
+  background: #193A6A;
+  background: url('../../assets/componentDNPBNH79.png');
+  background-repeat: no-repeat;
+  background-position: right top;
+  bottom: 0px;
+  height: 100%;
+  width:100%;
+}
+
+.contenedor-principal{
+  margin-top: 10%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  width: 35%;
+  padding: 3%;
+}
+
+.contenedor-principal .contenedor-check{
+  margin-left: 15%;
+}
+
+.container .contenedor-check .check{
+  margin-top: 10%;
+  margin-left: 9%;
+  font-size: 45px;
+  font-style: bold;
+  position: relative;
+  color: #FFFFFF;
+}
+.container .contenedor-check .img1{
+  position: fixed;
+  width: 5%;
+  height: 13%;
+  opacity: 0.9;
+}
+
+.container .contenedor-check .app-devant{
+  margin-top: -11%;
+  margin-left: 37%;
+  font-size: 16px;
+  font-style: bold;
+  color: #00BFBB;
+}
+
+.container .contenedor-check .txt-devant{
+  font-weight: normal;
+  color: #00BFBB;
+  font-size: 18px;
+}
+
+.container .contenedor-check .txt-mr{
+  margin-top: 10%;
+}
+
+.container .contenedor-check .txt-ps{
+  margin-top: 5%;
+}
+
+.container .contenedor-check .input-txt{
+  width: 80%;
+}
+
+.container .app-in {
+  
+  border-style: solid;
+  width: 35%;
+  border-color: #00BFBB;
+  margin-top: 15%;
+  margin-left: 30%;
+}
+
+.app-in .check-in{
+  font-size: 13px;
+  font-style: bold;
+  color: #3BB9ED;
+  text-align: center;
+  margin-top: -2%;
+  margin-bottom: -1%;
+  cursor: pointer;
+}
+
+.contenedor-img{
+  background-repeat: no-repeat;
+  background-position: left top;
+  margin-left: 3%;
+}
+
+

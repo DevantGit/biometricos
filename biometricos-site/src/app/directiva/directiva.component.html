@@ -1,0 +1,92 @@
+
+<body class="body rounded-top">
+        <app-header></app-header>  
+        <ngx-ui-loader></ngx-ui-loader>
+                <div class="img-huella">
+                  
+                    
+                    <div class="form-control contenedor-busqueda ">
+                        <div class="col-md-4 label-name">
+                            <input class="form-control txt-name" autofocus type="text" [(ngModel)]="term" name="term" placeholder="Búsqueda por nombre" aria-label="Search">
+                        </div>
+                        <div class="col-md-2 label-name">
+                            <p class="txt-consultar">Consultar:</p>
+                        </div>
+                        <div class="col-md-2 label-name">
+                            <ejs-datepicker id='datepicker' placeholder='Seleccione la fecha'[(ngModel)]="dateOne"  format ='dd-MM-yyyy' class="dataPicker"></ejs-datepicker>
+                        </div>
+                        <div class="col-md-2 label-name">
+                            <ejs-datepicker id='datepicker' placeholder='Seleccione la fecha'[(ngModel)]="dateTwo"  format ='dd-MM-yyyy' class="dataPicker"></ejs-datepicker>
+                        </div>
+                        <div class="col-md-1 label-name">
+                            <img src="../../assets/componentKLA6241P.png" class="img-search" alt="">
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    <div class="content-resultado">
+                            <p class="txt-resultado">RESULTADO DE LA BUSQUEDA</p>
+                        </div>
+                    <div class="form-control content-div">
+    
+                            <div class="div-barrera">
+                                </div>
+                            <div class="form-control contenedor-form container2">    
+                      
+                                    <div class="contenedor-checador">
+                                        <table *ngIf="tab" class="table table-bordered table-striped">
+                                            <thead class="tr-body">
+                                              <tr >
+                                                
+                                                <th class="txt-table nombre">NOMBRE</th>
+                                                <th class="txt-table fecha">FECHA</th>
+                                                <th class="txt-table hora-entrada">HORA DE ENTRADA</th>
+                                                <th class="txt-table hora-salida">HORA DE SALIDA</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody >
+                                              <tr *ngFor="let cliente of clientes | filter:term ">
+                                                  <td class="txt-userID" >
+                                                    <input type="number" id="userID" value="{{cliente.userID}}">
+                                                  </td>
+                                                  <td class="txt-usuario">{{ cliente.name }}</td>
+                                                  <td class="txt-usuario">{{ cliente.fechaFormt }}</td>
+                                                  <td class="txt-usuario">{{ cliente.horaIn }}</td>
+                                                  <td class="txt-usuario">{{ cliente.horaOut }}</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                          
+                                          <table *ngIf="busqueda" class="table table-bordered table-striped">
+                                            <thead class="tr-body">
+                                              <tr >
+                                                
+                                                <th class="txt-table nombre">NOMBRE</th>
+                                                <th class="txt-table fecha">FECHA</th>
+                                                <th class="txt-table hora-entrada">HORA DE ENTRADA</th>
+                                                <th class="txt-table hora-salida">HORA DE SALIDA</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody *ngFor="let cliente of userClit ">
+                                              <tr *ngFor="let usu of cliente.checkDTO">
+                                                  <td class="txt-userID" >
+                                                    <input type="number" id="userID" value="{{cliente.userID}}">
+                                                  </td>
+                                                  <td class="txt-usuario">{{ cliente.name }}</td>
+                                                  <td class="txt-usuario" >{{ usu.date }}</td>
+                                                  <td class="txt-usuario">{{ cliente.horaIn }}</td>
+                                                  <td class="txt-usuario">{{ cliente.horaOut }}</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                    </div>
+                                  </div>
+                    </div>
+                    
+              
+                    
+                  
+                </div>
+                
+              </body>
