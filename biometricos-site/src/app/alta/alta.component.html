@@ -1,0 +1,113 @@
+<body class="body rounded-top">
+  <app-header></app-header>
+  <div class="img-huella">
+
+      <div class="content-resultado">
+          <p class="txt-resultado">AGREGAR NUEVO REGISTRO</p>
+        </div>
+
+    <div class="form-control content-div">
+      <div class="div-barrera">
+      </div>
+
+      <div class="info-personal">
+        <p class="txt-info">Información Personal
+            <img src="../../assets/close.svg" alt="" class="img-close">
+        </p>
+        
+      </div>
+
+
+      <div class="info-txt">
+        <div class="row">
+          <div class="content-img col-md-2">
+            <img src="../../assets/karime.jpg" class="img-user">
+          </div>
+          <div class="content-plus">
+              <img src="../../assets/grupo.svg" class="img-add">
+          </div>
+          <div class="content-datos col-md-10">
+            <div class="cabecera">
+              <p class="txt-dev">Nombre: </p>
+              <input type="text" class="form-control label-name txt-dev" placeholder="Ingrese nombre del colaborador">
+            </div>
+          </div>
+
+          <div class=" col-md-2">
+          </div>
+          <div class="content-datos2 col-md-10">
+            <div class="cabecera">
+              <p class="txt-dev">F. Nacimiento: </p>
+
+              <div class="col-md-2 txt-dev">
+                  <ejs-datepicker id='datepicker'  placeholder='DD-MM-AAAA' [(ngModel)]="dateOne" format='dd-MM-yyyy'
+                  class="dataPicker"></ejs-datepicker>
+              </div>
+              <p class="txt-dev txt-sexo">Sexo: </p>
+              <select class=" txt-dev select-info">
+                <option selected value="masculino">masculino</option>
+                <option value="femenino">femenino</option>
+              </select>
+              <p class="txt-dev no-imss">N° IMSS: </p>
+              <input type="text" class="form-control txt-dev label-imss" placeholder="Ingrese n° IMSS">
+            </div>
+          </div>
+
+          <div class=" col-md-2">
+          </div>
+          <div class="content-datos3 col-md-10">
+            <div class="cabecera">
+              <p class="txt-dev">Direccion: </p>
+              <input type="text" class="form-control label-name txt-dev" placeholder="Ingrese dirección del colaborador">
+            </div>
+          </div>
+
+          <div class=" col-md-2">
+          </div>
+          <div class="content-datos3 col-md-10">
+            <div class="cabecera">
+              <p class="txt-dev">Tel. Casa: </p>
+              <input type="text" class="form-control label-casa txt-dev" placeholder="Ingrese tel. de casa">
+              <p class="txt-dev txt-sexo">Celular: </p>
+              <input type="text" class="form-control label-celular txt-dev" placeholder="Ingrese tel. celular">
+            </div>
+          </div>
+
+
+        </div>
+        <div class="info-personal">
+          <p class="txt-info">Información Laboral</p>
+        </div>
+        <div class="row">
+            <div class="container content-3" >
+                <div class="content-datos3 col-md-12 cabecera">
+                    
+                    <p class="txt-dev txt-sexo">N° Empleado: </p>
+                    <label class="txt-dev label-id">100</label>
+                    <p class="txt-dev txt-sexo">Fecha Ingreso: </p>
+                    <div class="col-md-2 txt-dev">
+                        <ejs-datepicker id='datepicker'  placeholder='DD-MM-AAAA' [(ngModel)]="dateOne" format='dd-MM-yyyy'
+                        class="dataPicker"></ejs-datepicker>
+                    </div>
+                    <p class="txt-dev txt-sexo">Área: </p>
+                    <input type="text" class="form-control txt-dev label-id" placeholder="Ingrese área de trabajo">
+                  </div>
+            </div>
+            <div class="container">
+                <div class="content-datos3 col-md-12 cabecera">
+                    <p class="txt-dev txt-sexo">Puesto: </p>
+                    <input type="text" class="txt-dev label-id form-control" placeholder="Puesto de trabajo">
+                  </div>
+            </div>
+        </div>
+
+        <div class="content-guardar">
+          <button class="btn-guardar">GUARDAR</button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</body>

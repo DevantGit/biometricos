@@ -15,7 +15,8 @@ public class UserDevant implements Serializable{
 	private String name;
 	private String title;
 	private List<UserAssistanceDate> checkInOut;
-	private List<CheckInOutDTO> checkDTO ;
+	private List<CheckInOutDTO> checkDTO;
+	private UserDevantInfoDate userInfoDate;
 	private String fechaIngreso;
 	private String fechaSalida;
 	private String statusIngreso;
@@ -94,6 +95,12 @@ public class UserDevant implements Serializable{
 	}
 	public void setFechaFormt(String fechaFormt) {
 		this.fechaFormt = fechaFormt;
+	}
+	public UserDevantInfoDate getUserInfoDate() {
+		return userInfoDate;
+	}
+	public void setUserInfoDate(UserDevantInfoDate userInfoDate) {
+		this.userInfoDate = userInfoDate;
 	}
 	
 }

@@ -28,7 +28,7 @@ public class ConnectionDB {
 	
 	public boolean establecerConexion() {
 		try {
-			conexion=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\Equipo\\Documents\\Aplicacion Biometrico\\ATT2000.MDB");
+			conexion=DriverManager.getConnection("jdbc:ucanaccess://Z:\\Aplicacion Biometrico\\19-7-19\\ATT2000.MDB");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;

@@ -17,8 +17,10 @@ import org.springframework.util.ObjectUtils;
 import com.mx.devant.fabrica.biometrico.biometricos.config.ControllerDb;
 import com.mx.devant.fabrica.biometrico.biometricos.dto.CheckInOutDTO;
 import com.mx.devant.fabrica.biometrico.biometricos.dto.DateDataObj;
+import com.mx.devant.fabrica.biometrico.biometricos.dto.InfoUser;
 import com.mx.devant.fabrica.biometrico.biometricos.dto.UserAssistanceDate;
 import com.mx.devant.fabrica.biometrico.biometricos.dto.UserDevant;
+import com.mx.devant.fabrica.biometrico.biometricos.dto.UserDevantInfoDate;
 import com.mx.devant.fabrica.biometrico.biometricos.rest.ControlUserNotFoundException;
 
 @Service
@@ -95,6 +97,11 @@ public class ControlUserService {
 					userAssis.setUserID(user.getUserID());
 					dto.setDate("Sin informacion");
 					dto.setUserID(user.getUserID());
+					dto.setFechaIn("--");
+					dto.setFechaOut("--");
+					dto.setStatusIngreso("--");
+					dto.setDateFormat("--");
+					dto.setStatusIngreso("--");
 					userAssis.setCheckIn(dto);
 					userAssis.setCheckOut(dto);
 					userAssis.setHoraIn("--");
@@ -170,7 +177,19 @@ public class ControlUserService {
 				user.setName(rs.getString(4));
 				user.setTitle(rs.getString(6));
 				user.setCheckDTO(this.getCheckInOut(data));
+				user.setFechaIngreso("no data");
+				user.setFechaSalida("no data");
+				user.setStatusIngreso("no data");
+				user.setHoraIn("no data");
+				user.setHoraOut("no data");
+				user.setFechaFormt("no data");
+
 				listUserDev.add(user);
+
+				user.setUserInfoDate(this.checkSchedules(listUserDev.get(0).getCheckDTO(), user));
+
+				// this.validarInasistencias(listUserDev.get(0).getCheckDTO(),
+				// data.getFechainicio(), data.getFechaFin());
 			}
 
 		} catch (ControlUserNotFoundException e) {
@@ -186,7 +205,7 @@ public class ControlUserService {
 		ResultSet rs;
 		List<CheckInOutDTO> listck = new ArrayList<CheckInOutDTO>();
 		List<CheckInOutDTO> listNewData = new ArrayList<CheckInOutDTO>();
-		
+
 		try {
 
 			StringBuilder sb = new StringBuilder();
@@ -208,63 +227,115 @@ public class ControlUserService {
 			}
 
 			listck = this.validarSemanaRetardo(listck, data.getFechainicio(), data.getFechaFin());
-			
-			
-			int contador=0, index=0;
+
+			int contador = 0, index = 0;
 			CheckInOutDTO out = new CheckInOutDTO();
-			
-			for( CheckInOutDTO dat : listck) {
-				if(contador < 1) {
+
+			for (CheckInOutDTO dat : listck) {
+				if (contador < 1) {
 					contador++;
 					out.setDate(dat.getDate());
 					out.setDateFormat(dat.getDateFormat());
-					if(dat.getFechaIn() == null) {
-						for( CheckInOutDTO d: listck) {
-							if(dat.getDateFormat().equals(d.getDateFormat())) {
-								if(d.getFechaIn() != null) {
+					if (dat.getFechaIn() == null) {
+						for (CheckInOutDTO d : listck) {
+							if (dat.getDateFormat().equals(d.getDateFormat())) {
+								if (d.getFechaIn() != null) {
 									out.setFechaIn(d.getFechaIn());
 									break;
 								}
 							}
 						}
-					}else {
+					} else {
 						out.setFechaIn(dat.getFechaIn());
 					}
-					
+
 					out.setFechaOut(dat.getFechaOut());
 					out.setUserID(dat.getUserID());
-					
+
 					listNewData.add(out);
-				}else {
-					
-					if(!dat.getDateFormat().equals(listNewData.get(index).getDateFormat())) {
+				} else {
+
+					if (!dat.getDateFormat().equals(listNewData.get(index).getDateFormat())) {
 						index++;
 						CheckInOutDTO dt = new CheckInOutDTO();
 						dt.setDate(dat.getDate());
 						dt.setDateFormat(dat.getDateFormat());
-						if(dat.getFechaIn() == null) {
-							for( CheckInOutDTO d: listck) {
-								if(dat.getDateFormat().equals(d.getDateFormat())) {
-									if(d.getFechaIn() != null) {
+						if (dat.getFechaIn() == null) {
+							for (CheckInOutDTO d : listck) {
+								if (dat.getDateFormat().equals(d.getDateFormat())) {
+									if (d.getFechaIn() != null) {
 										dt.setFechaIn(d.getFechaIn());
 										break;
 									}
 								}
 							}
-						}else {
+						} else {
 							dt.setFechaIn(dat.getFechaIn());
 						}
-						
+
 						dt.setFechaOut(dat.getFechaOut());
 						dt.setUserID(dat.getUserID());
-						
+
 						listNewData.add(dt);
-						
+
 					}
-					
+
 				}
-				
-				
+			}
+
+			for (CheckInOutDTO u : listNewData) {
+
+				if (StringUtils.equals(u.getDate(), "Sin informacion")) {
+					u.setStatusIngreso("Sin registro");
+				} else {
+
+					SimpleDateFormat displayFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+					Date date = displayFormat.parse(u.getDateFormat().concat(" ").concat(u.getFechaIn()));
+
+					SimpleDateFormat formatMinutes = new SimpleDateFormat("mm");
+					String getMinutes = formatMinutes.format(date);
+
+					SimpleDateFormat formatHours = new SimpleDateFormat("HH");
+					String getHours = formatHours.format(date);
+
+					if (Integer.parseInt(getHours) <= 9 && Integer.parseInt(getHours) < 10) {
+						if (Integer.parseInt(getMinutes) < 15
+								|| (Integer.parseInt(getHours) <= 8 && Integer.parseInt(getMinutes) <= 60)) {
+							u.setStatusIngreso("ok");
+						} else {
+							u.setStatusIngreso("retardo");
+						}
+					} else {
+						u.setStatusIngreso("retardo");
+					}
+				}
+
+				SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd H:m:s");
+				Date fechaInicial = dateFormat.parse(u.getDateFormat().concat(" ").concat(u.getFechaIn()));
+				Calendar calendar = Calendar.getInstance();
+				calendar.setTime(fechaInicial);
+
+				int h = 0, m = 0;
+				h = calendar.get(Calendar.HOUR_OF_DAY);
+				m = calendar.get(Calendar.MINUTE);
+
+//					System.out.println( (h*3600) + (m*60) );
+
+				if (h >= 5 && h < 10) {
+					if (m <= 15 || h <= 8 && m <= 60) {
+						System.out.println("A Tiempo " + (h * 3600 + m * 60) + " " + u.getFechaIn());
+						u.setMax((h * 3600 + m * 60));
+						u.setMin(0);
+					} else {
+						System.out.println("Retardo " + (h * 3600 + m * 60) + " " + u.getFechaIn());
+						u.setMin((h * 3600 + m * 60));
+						u.setMax(0);
+					}
+				} else {
+					System.out.println("Retardo " + (h * 3600 + m * 60) + " " + u.getFechaIn());
+					u.setMin((h * 3600 + m * 60));
+					u.setMax(0);
+				}
 			}
 
 			if (ObjectUtils.isEmpty(listck)) {
@@ -328,7 +399,7 @@ public class ControlUserService {
 
 				StringBuilder stb = new StringBuilder();
 				stb.append(ck.getDateFormat());
-				
+
 				if (StringUtils.equals(stb.toString(), dateCut)) {
 
 					if (ObjectUtils.isEmpty(listOut)) {
@@ -350,8 +421,8 @@ public class ControlUserService {
 							}
 						}
 					}
-					
-					if(!ObjectUtils.isEmpty(listOut)){
+
+					if (!ObjectUtils.isEmpty(listOut)) {
 						CheckInOutDTO dto = new CheckInOutDTO();
 						dto.setDate(ck.getDate());
 						dto.setDateFormat(ck.getDateFormat());
@@ -364,7 +435,7 @@ public class ControlUserService {
 						listOut.add(dto);
 					} else {
 						for (CheckInOutDTO ltd : listOut) {
-							
+
 							if (ck.getUserID() == ltd.getUserID() && ck.getDateFormat().equals(ltd.getDateFormat())) {
 								String in = ltd.getFechaIn();
 								ltd.setFechaIn((in) == null ? this.convertDateToHours(ck.getDate()) : ck.getFechaOut());
@@ -372,11 +443,10 @@ public class ControlUserService {
 						}
 					}
 
-				} 
+				}
 
 			}
 		}
-
 
 		return listOut;
 	}
@@ -425,8 +495,10 @@ public class ControlUserService {
 				user.setCheckOut((out) == null ? in : out);
 				user.setFechaForm(dto.getDateFormat());
 
-				user.setHoraIn(this.convertDateToHours(user.getCheckIn().getDate()));
-				user.setHoraOut(this.convertDateToHours(user.getCheckOut().getDate()));
+				user.setHoraIn(user.getCheckIn().getDate() == null ? "no data"
+						: this.convertDateToHours(user.getCheckIn().getDate()));
+				user.setHoraOut(user.getCheckOut().getDate() == null ? "no data"
+						: this.convertDateToHours(user.getCheckOut().getDate()));
 
 				listAssi.add(user);
 				break;
@@ -491,6 +563,8 @@ public class ControlUserService {
 				nck.setDate(u.getDate());
 				nck.setDateFormat(getDate);
 				nck.setUserID(u.getUserID());
+				nck.setFechaIn(u.getFechaIn() == null ? "no data" : u.getFechaIn());
+				nck.setFechaOut(u.getFechaOut() == null ? "no data" : u.getFechaOut());
 				listOut.add(nck);
 			}
 
@@ -538,6 +612,111 @@ public class ControlUserService {
 		}
 
 		return listOut;
+	}
+
+	public UserDevantInfoDate checkSchedules(List<CheckInOutDTO> data, UserDevant userDev) throws ParseException {
+
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd H:m:s");
+		UserDevantInfoDate userInfo = new UserDevantInfoDate();
+		List<InfoUser> listUserInfoDelays = new ArrayList<InfoUser>();
+		List<InfoUser> listUserInfoTimeOffice = new ArrayList<InfoUser>();
+		List<InfoUser> listUserAbsence = new ArrayList<InfoUser>();
+
+		for (CheckInOutDTO inOut : data) {
+
+			Date fechaInicial = dateFormat.parse(inOut.getDateFormat().concat(" ").concat(inOut.getFechaIn()));
+			Date fechaFinal = dateFormat.parse(inOut.getDateFormat().concat(" ").concat(inOut.getFechaOut()));
+
+			int diferencia = (int) ((fechaFinal.getTime() - fechaInicial.getTime()) / 1000);
+
+			int dias = 0;
+			int horas = 0;
+			int minutos = 0;
+
+			if (diferencia > 86400) {
+				dias = (int) Math.floor(diferencia / 86400);
+				diferencia = diferencia - (dias * 86400);
+			}
+			if (diferencia > 3600) {
+				horas = (int) Math.floor(diferencia / 3600);
+				diferencia = diferencia - (horas * 3600);
+			}
+			if (diferencia > 60) {
+				minutos = (int) Math.floor(diferencia / 60);
+				diferencia = diferencia - (minutos * 60);
+			}
+
+			if (horas >= 9) {
+
+				InfoUser user = new InfoUser();
+				user.setInfoCheck(inOut.getDateFormat());
+				user.setHours(String.valueOf(horas).concat(":").concat(String.valueOf(minutos)).concat(":")
+						.concat(String.valueOf(diferencia)));
+				user.setUserId(userDev.getUserID());
+				user.setName(userDev.getName());
+
+				listUserInfoTimeOffice.add(user);
+				userInfo.setTimeOffice(listUserInfoTimeOffice);
+			} else {
+
+				InfoUser user = new InfoUser();
+				user.setInfoCheck(inOut.getDateFormat());
+				user.setHours(String.valueOf(horas).concat(":").concat(String.valueOf(minutos)).concat(":")
+						.concat(String.valueOf(diferencia)));
+				user.setUserId(userDev.getUserID());
+				user.setName(userDev.getName());
+
+				listUserInfoDelays.add(user);
+				userInfo.setDelays(listUserInfoDelays);
+			}
+		}
+
+		return userInfo;
+	}
+
+	public String validarInasistencias(List<CheckInOutDTO> data, String fechainicio, String fechaFin)
+			throws ParseException {
+		CheckInOutDTO n = data.get(data.size() - 1);
+		System.err.println(n.getDate());
+
+		String n2 = data.get(0).getDate();
+		System.err.println(n2);
+
+		String fIni = this.validarFechaIngresada(fechainicio);
+		String fFin = this.validarFechaIngresada(fechaFin);
+
+		SimpleDateFormat disprmat = new SimpleDateFormat("dd-MM-yyyy");
+		Date dateInio = disprmat.parse(n.getDate());
+		Date dateFin = disprmat.parse(n2);
+		SimpleDateFormat formatDias = new SimpleDateFormat("dd");
+		String getDiasIni = formatDias.format(dateInio);
+		String getDiasFin = formatDias.format(dateFin);
+
+		int fI = Integer.parseInt(getDiasIni);
+		int feFin = Integer.parseInt(getDiasFin);
+		int count = feFin;
+		for (CheckInOutDTO dto : data) {
+
+			Date date = disprmat.parse(dto.getDate());
+			SimpleDateFormat formatDiasBD = new SimpleDateFormat("dd");
+			String getDias = formatDiasBD.format(date);
+
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(date);
+
+			if (fI <= count) {
+				if (Integer.parseInt(getDias) == count) {
+					System.out.println("Fechas de BD: " + dto.getDateFormat());
+					if (calendar.get(Calendar.DAY_OF_WEEK) == 2) {
+						count = count - 3;
+					} else {
+						count--;
+					}
+				}
+			}
+
+		}
+		return null;
 	}
 
 	public String convertDateCut(String data) throws ParseException {

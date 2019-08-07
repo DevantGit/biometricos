@@ -1,0 +1,197 @@
+.body {
+    position: absolute;
+    background: #FFFFFF;
+    bottom: 0px;
+    height: 100%;
+    width:100%;
+  }  
+.img-huella{
+    margin: 10px 30px 10px 30px;
+}
+.content-resultado{
+    background-color: #00A0E0;
+    width: 30%;
+    position: fixed;
+    top: 9%;  
+    left: 0%; 
+  }
+  
+  .content-resultado .txt-resultado{
+    color: #FFFFFF;
+    font-weight: bolder;
+    font-size: 15px;
+    text-align: center;
+    margin: 10px 0px
+  }
+
+  .content-img .img-user{
+      position: absolute;
+      border: 5px solid #646263;
+      border-radius: 100%;
+      width: 60%;
+      left: 25%;
+      top: 60%;
+  }
+
+  .content-plus .img-add{
+      width: 13%;
+      cursor: pointer;
+  }
+  .content-plus{
+      position: absolute;
+      left: 13%;
+      width: 13%;
+      top: 40%;   
+  }
+
+  .content-div{
+    margin-top: 10px;
+    background-color: #F6F6F6;
+}
+
+.div-barrera{
+    background-color: #00A0E0;
+    width: 100%;
+    height: 5px;
+    margin-top: 10px;
+  }
+
+  .content-div .info-personal{
+    background-color: #EBEBEB;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+  }
+
+  .info-personal .txt-info{
+      text-align: center;
+      font-weight: bolder;
+      padding-top: 5px;
+      color: #646263;
+  }
+
+  .info-acceso .txt-info{
+    text-align: left;
+    font-weight: bolder;
+    padding-top: 5px;
+    color: #FFFFFF;
+    margin-left: 5px;
+}
+
+  .content-div .info-txt{
+      background-color: #FFFFFF;
+      width: 100%;
+      height: 10%;
+  }
+
+  .info-txt .content-datos{
+      margin-top: 15px;
+  }
+  .info-txt .content-datos2{
+    margin-top: 5px;
+}
+.info-txt .content-datos3{
+    margin-top: 5px;
+}
+  .cabecera{
+    position: relative;
+  }
+
+  .label-name{
+    width: 90%;
+    height: 30px;
+    margin-left: 10px;
+    background: #F6F6F6;
+  }
+  .txt-dev {
+    float: left;
+  }
+
+  .label-anio{
+    width: 13%;
+    height: 30px;
+    margin-left: 10px;
+    background: #F6F6F6;
+  }
+  .content-datos2 .txt-sexo{
+      margin-left: 10px;
+  }
+
+  .content-datos2 .select-info{
+      width: 15%;
+      height: 35px;
+      margin-left: 10px;
+      margin-top: -2px;
+  }
+
+  .content-datos2 .no-imss{
+    margin-left: 10px;
+}
+
+.content-datos2 .label-imss{
+    width: 20%;
+    height: 35px;
+    margin-left: 10px;
+    background: #F6F6F6;
+}
+
+.label-casa{
+    width: 20%;
+    height: 30px;
+    margin-left: 10px;
+    background: #F6F6F6;
+}
+
+.content-datos3 .txt-sexo{
+    margin-left: 10px;
+}
+
+.label-celular{
+    width: 20%;
+    height: 30px;
+    margin-left: 10px;
+    background: #F6F6F6;
+}
+
+.label-id{
+    width: 20%;
+    height: 30px;
+    margin-left: 10px;
+    background: #F6F6F6;
+}
+
+.content-3{
+    margin-top: 10pX;
+}
+
+.info-acceso{
+    background-color: #646263;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+}
+
+.btn-guardar{
+    background-color: #FFFFFF;
+    width: 100%;
+    border: solid 2px #00A0E0;
+    border-radius: 5px;
+    color: #182652;
+    font-size: 18px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.content-guardar{
+    padding-top: 7%;
+}
+
+.img-close{
+    position: relative;
+    float: right;
+    margin: 5px 5px;
+    width: 15px;
+    cursor: pointer;
+}

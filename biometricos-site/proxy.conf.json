@@ -1,0 +1,7 @@
+{
+    "/data/2.5/forecast/daily?": {
+        "target": "https://samples.openweathermap.org",
+        "secure": false,
+        "changeOrigin": true
+    }
+}

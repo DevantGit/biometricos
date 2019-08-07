@@ -185,6 +185,7 @@ width: 200px;
 text-align: center;
 font-weight: bold;
 font-size: 15px;
+height: 10px;
 color: #FFFFFF;
 }
 
@@ -194,17 +195,17 @@ width: 20%;
 }
 
 .contenedor-checador .fecha{
-background-color:  #00BFBB;
+background-color:  #19A9E3;
 width: 20%;
 }
 
 .contenedor-checador .hora-entrada{
-background-color: #00A0E0 ;
+background-color: #0089BF ;
 width: 20%;
 }
 
 .contenedor-checador .hora-salida{
-background-color: #0089BF ;
+background-color: #006D98 ;
 width: 20%;
 }
 
@@ -223,4 +224,14 @@ color: #333639;
 display: none;
 }
 
+.img-settings{
+  width: 18px;
+  margin-right: 40px;
+  cursor: pointer;
+}
 
+.img-trash{
+  width: 15px;
+  margin-left: 40px;
+  cursor: pointer;
+}
