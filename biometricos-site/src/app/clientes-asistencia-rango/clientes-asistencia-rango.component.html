@@ -1,0 +1,70 @@
+<app-header></app-header>
+<div class="menu-container">
+    <div class="menu-subcontainer">
+        <div class="back-icon-bs"></div>
+        <input class="search-field form-control" autofocus type="text" [(ngModel)]="term" (ngModelChange)="saverange(term);" name="term" placeholder="Búsqueda por nombre" aria-label="Search">
+        <input id="searchId" type="hidden" />
+        <div class="search-icon"></div>
+        <div class="alta-icon" routerLink="/alta"></div>
+    </div>
+</div>
+
+<!-- <ngx-ui-loader></ngx-ui-loader>
+  <ngx-alerts></ngx-alerts> -->
+<div class="view-logo-container">
+    <div class="view-logo">REPORTE DE RESGISTROS</div>
+</div>
+<div class="view-logo-frame"></div>
+<div class="form-container">
+    <div class="form-card">
+        <div class="form-control contenedor-form container2">
+
+            <div class="contenedor-checador">
+                <table *ngIf="tab" class="table table-bordered table-striped">
+                    <thead class="tr-body">
+                        <tr>
+                            <th class="txt-table nombre">#EMP</th>
+                            <th class="txt-table fecha">NOMBRE</th>
+                            <th class="txt-table hora-entrada">ESTATUS</th>
+                            <th class="txt-table hora-salida">ACCION</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let cliente of userClit ">
+                        <tr *ngFor="let usu of cliente.checkInOut">
+                            <td class="txt-userID">
+                                <input type="number" id="userID" value="{{cliente.userID}}">
+                            </td>
+                            <td class="txt-usuario">{{ cliente.name }}</td>
+                            <td class="txt-usuario">{{ usu.statusIngreso }}</td>
+                            <td class="txt-usuario">{{ usu.fechaIn }}</td>
+                            <td class="txt-usuario">{{ usu.fechaOut }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table *ngIf="busqueda" class="table table-bordered table-striped">
+                    <thead class="tr-body">
+                        <tr>
+
+                            <th class="txt-table nombre">#EMP</th>
+                            <th class="txt-table fecha">NOMBRE</th>
+                            <th class="txt-table hora-entrada">HORA DE ENTRADA</th>
+                            <th class="txt-table hora-salida">HORA DE SALIDA</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let cliente of userClit ">
+                        <tr *ngFor="let usu of cliente.checkInOut">
+                            <td class="txt-userID">
+                                <input type="number" id="userID" value="{{cliente.userID}}">
+                            </td>
+                            <td class="txt-usuario">{{ cliente.name }}</td>
+                            <td class="txt-usuario">{{ usu.statusIngreso }}</td>
+                            <td class="txt-usuario">{{ usu.fechaIn }}</td>
+                            <td class="txt-usuario">{{ usu.fechaOut }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

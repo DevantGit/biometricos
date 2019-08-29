@@ -1,0 +1,117 @@
+<div class="overlay nsm-overlay-open">
+    <div class="nsm-dialog nsm-dialog-animation-fade nsm-dialog-open">
+        <div class="nsm-content">
+            <div class="nsm-body">
+                <div class="view-space-container">
+                    <img src="../../assets/close.svg" alt="" class="img-close" (click)="ngxSmartModalService.getModal('classicModal').close(); limpiarCampos();">
+                </div>
+                <div class="view-logo-container-modal">
+                    <div class="view-logo">AJUSTES</div>
+                </div>
+                <div class="view-logo-frame-modal"></div>
+                <div class="form-card-modal">
+                    <div class="content-div">
+                        <div class="txt-user-devant">
+                            JAVIER DURAN SANCHEZ
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label class="txt-user-setting">ID:</label>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="txt-dev-view">{{userID}}</label>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="txt-user-setting">No Empleado:</label>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="txt-dev-view">{{noEmpleado}}</label>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="txt-user-setting">Fecha Ingreso:</label>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="txt-dev-view">100</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label class="txt-user-setting">No Tarjeta:</label>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="txt-dev-view">{{noTarjeta}}</label>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="txt-user-setting">Área:</label>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="txt-dev-view">100</label>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="txt-user-setting">Puesto:</label>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="txt-dev-view">100</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label class="txt-user-setting">Estatus:</label>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="txt-dev-estatus">{{estatus}}</label>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="content-accesos">
+                        <p class="txt-accessos">Accesos</p>
+                    </div>
+
+
+
+                </div>
+                <div class="content-toggle">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label class="txt-user-setting">Torniquetes:</label>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="switch">
+                                <input type="checkbox" id="torniquetes" >
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="txt-user-setting">Desarrollo:</label>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="switch">
+                                <input type="checkbox" id="fabrica" >
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="txt-user-setting">Lector de Huella:</label>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="switch">
+                                <input type="checkbox" id="infre" >
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="content-guardar">
+                <button class="btn-guardar " (click)="guardarCambios();">GUARDAR</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -28,4 +28,9 @@ public class ControllerDb {
 		ResultSet aux_result = this.con.ejecutarSentencia(sql);
 		return aux_result;
 	}
+	
+	public int mandarSqlINSERT(String sql) throws SQLException {
+		int aux_result = this.con.ejecutarINSERTSentencia(sql);
+		return aux_result;
+	}
 }

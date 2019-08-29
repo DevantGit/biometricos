@@ -15,13 +15,19 @@ public class UserDevant implements Serializable{
 	private String name;
 	private String title;
 	private List<UserAssistanceDate> checkInOut;
-	private List<CheckInOutDTO> checkDTO ;
+	private List<CheckInOutDTO> checkDTO;
+	private UserDevantInfoDate userInfoDate;
 	private String fechaIngreso;
 	private String fechaSalida;
 	private String statusIngreso;
 	private String horaIn;
 	private String horaOut;
 	private String fechaFormt;
+	private Integer regTiempo;
+	private Integer regRetraso;
+	private Integer regFalta;
+	private String departamento;
+	private String noTarjeta;
 	
 	public Integer getUserID() {
 		return userID;
@@ -95,5 +101,41 @@ public class UserDevant implements Serializable{
 	public void setFechaFormt(String fechaFormt) {
 		this.fechaFormt = fechaFormt;
 	}
+	public UserDevantInfoDate getUserInfoDate() {
+		return userInfoDate;
+	}
+	public void setUserInfoDate(UserDevantInfoDate userInfoDate) {
+		this.userInfoDate = userInfoDate;
+	}
+	public Integer getRegTiempo() {
+		return regTiempo;
+	}
+	public void setRegTiempo(Integer regTiempo) {
+		this.regTiempo = regTiempo;
+	}
+	public Integer getRegRetraso() {
+		return regRetraso;
+	}
+	public void setRegRetraso(Integer regRetraso) {
+		this.regRetraso = regRetraso;
+	}
+	public Integer getRegFalta() {
+		return regFalta;
+	}
+	public void setRegFalta(Integer regFalta) {
+		this.regFalta = regFalta;
+	}
 	
+	public String getDepartamento() {
+		return departamento;
+	}
+	public void setDepartamento(String departamento) {
+		this.departamento = departamento;
+	}
+	public String getNoTarjeta() {
+		return noTarjeta;
+	}
+	public void setNoTarjeta(String noTarjeta) {
+		this.noTarjeta = noTarjeta;
+	}
 }

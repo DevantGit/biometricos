@@ -1,92 +1,74 @@
+<app-header></app-header>
+<!-- <img *ngIf="loading" src="../../assets/loading.gif" class="loading" alt=""> -->
+<div class="menu-container">
+    <div class="menu-subcontainer">
+        <input class="search-field form-control" autofocus type="text" [(ngModel)]="term" (ngModelChange)="saverange(term);" name="term" placeholder="Búsqueda por nombre" aria-label="Search">
+        <input id="searchId" type="hidden" />
+        <div class="search-icon"></div>
+        <div class="alta-icon">
+            <select id="departamento" class="combo" (change)="cambioDepartamento()">
+                <option value="fabrica" selected>FABRICA DE SW</option>
+                <option value="adminstracion">ADMINSTRACION</option>
+                <option value="infrestru">INFRESTRUCTURA</option>
+            </select>
+        </div>
+    </div>
+</div>
 
-<body class="body rounded-top">
-        <app-header></app-header>  
-        <ngx-ui-loader></ngx-ui-loader>
-                <div class="img-huella">
-                  
-                    
-                    <div class="form-control contenedor-busqueda ">
-                        <div class="col-md-4 label-name">
-                            <input class="form-control txt-name" autofocus type="text" [(ngModel)]="term" name="term" placeholder="Búsqueda por nombre" aria-label="Search">
-                        </div>
-                        <div class="col-md-2 label-name">
-                            <p class="txt-consultar">Consultar:</p>
-                        </div>
-                        <div class="col-md-2 label-name">
-                            <ejs-datepicker id='datepicker' placeholder='Seleccione la fecha'[(ngModel)]="dateOne"  format ='dd-MM-yyyy' class="dataPicker"></ejs-datepicker>
-                        </div>
-                        <div class="col-md-2 label-name">
-                            <ejs-datepicker id='datepicker' placeholder='Seleccione la fecha'[(ngModel)]="dateTwo"  format ='dd-MM-yyyy' class="dataPicker"></ejs-datepicker>
-                        </div>
-                        <div class="col-md-1 label-name">
-                            <img src="../../assets/componentKLA6241P.png" class="img-search" alt="">
-                        </div>
-                        
-                        
-                    </div>
-                    
-                    <div class="content-resultado">
-                            <p class="txt-resultado">RESULTADO DE LA BUSQUEDA</p>
-                        </div>
-                    <div class="form-control content-div">
-    
-                            <div class="div-barrera">
-                                </div>
-                            <div class="form-control contenedor-form container2">    
-                      
-                                    <div class="contenedor-checador">
-                                        <table *ngIf="tab" class="table table-bordered table-striped">
-                                            <thead class="tr-body">
-                                              <tr >
-                                                
-                                                <th class="txt-table nombre">NOMBRE</th>
-                                                <th class="txt-table fecha">FECHA</th>
-                                                <th class="txt-table hora-entrada">HORA DE ENTRADA</th>
-                                                <th class="txt-table hora-salida">HORA DE SALIDA</th>
-                                              </tr>
-                                            </thead>
-                                            <tbody >
-                                              <tr *ngFor="let cliente of clientes | filter:term ">
-                                                  <td class="txt-userID" >
-                                                    <input type="number" id="userID" value="{{cliente.userID}}">
-                                                  </td>
-                                                  <td class="txt-usuario">{{ cliente.name }}</td>
-                                                  <td class="txt-usuario">{{ cliente.fechaFormt }}</td>
-                                                  <td class="txt-usuario">{{ cliente.horaIn }}</td>
-                                                  <td class="txt-usuario">{{ cliente.horaOut }}</td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                          
-                                          <table *ngIf="busqueda" class="table table-bordered table-striped">
-                                            <thead class="tr-body">
-                                              <tr >
-                                                
-                                                <th class="txt-table nombre">NOMBRE</th>
-                                                <th class="txt-table fecha">FECHA</th>
-                                                <th class="txt-table hora-entrada">HORA DE ENTRADA</th>
-                                                <th class="txt-table hora-salida">HORA DE SALIDA</th>
-                                              </tr>
-                                            </thead>
-                                            <tbody *ngFor="let cliente of userClit ">
-                                              <tr *ngFor="let usu of cliente.checkDTO">
-                                                  <td class="txt-userID" >
-                                                    <input type="number" id="userID" value="{{cliente.userID}}">
-                                                  </td>
-                                                  <td class="txt-usuario">{{ cliente.name }}</td>
-                                                  <td class="txt-usuario" >{{ usu.date }}</td>
-                                                  <td class="txt-usuario">{{ cliente.horaIn }}</td>
-                                                  <td class="txt-usuario">{{ cliente.horaOut }}</td>
-                                              </tr>
-                                            </tbody>
-                                          </table>
-                                    </div>
-                                  </div>
-                    </div>
-                    
-              
-                    
-                  
-                </div>
-                
-              </body>
+<div class="view-logo-container">
+    <div class="view-logo">REPORTE DE RESGISTROS</div>
+</div>
+<div class="view-logo-frame"></div>
+<div class="form-container">
+
+    <div class="form-card">
+
+        <div class="imginline">
+
+            <div class="infoMes">
+                {{informacionMes}}
+            </div>
+
+            <div class="canvas">
+                <canvas *ngIf="canvasFabrica" id="canvasFabrica"></canvas>
+                <canvas *ngIf="canvasInfre" id="canvasInfre"></canvas>
+                <canvas *ngIf="canvasAdministracion" id="canvasAdministracion"></canvas>
+            </div>
+
+            <div id="prev" class="content-img">
+                <img src="../../assets/next.png" width="40" height="30" class="img-previous">
+            </div>
+
+            <div id="primerTrimestre" class="canvas2">
+                <canvas *ngIf="fabricaPrimer" id="canvasFabricaPrimer"></canvas>
+                <canvas *ngIf="infrePrimer" id="canvasInfrePrimer"></canvas>
+                <canvas *ngIf="adminPrimer" id="canvasAdminPrimer"></canvas>
+            </div>
+
+            <div id="segundoTrimestre" class="canvas2 segundoTri">
+                <canvas *ngIf="fabricaSegundo" id="canvasFabricaSegundo"></canvas>
+                <canvas *ngIf="infreSegundo" id="canvasInfreSegundo"></canvas>
+                <canvas *ngIf="adminSegundo" id="canvasAdminSegundo"></canvas>
+            </div>
+
+            <div id="tercerTrimestre" class="canvas2 segundoTri">
+                <canvas *ngIf="fabricaTercer" id="canvasFabricaTercer"></canvas>
+                <canvas *ngIf="infreTercer" id="canvasInfreTercer"></canvas>
+                <canvas *ngIf="adminTercer" id="canvasAdminTercer"></canvas>
+            </div>
+
+            <div id="cuartoTrimestre" class="canvas2 segundoTri">
+                <canvas *ngIf="fabricaCuarto" id="canvasFabricaCuarto"></canvas>
+                <canvas *ngIf="infreCuarto" id="canvasInfreCuarto"></canvas>
+                <canvas *ngIf="adminCuarto" id="canvasAdminCuarto"></canvas>
+            </div>
+
+            <div id="next" class="content-img">
+                <img src="../../assets/next.png" width="40" height="30" class="img-next">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,24 @@
+<div class="overlay nsm-overlay-open">
+    <div class="nsm-dialog nsm-dialog-animation-fade nsm-dialog-open">
+        <div class="nsm-content">
+            <div class="nsm-body">
+                <div class="view-space-container">
+                    <img src="../../assets/close.svg" alt="" class="img-close" (click)="ngxSmartModalService.getModal('modalInception').close()">
+                </div>
+                <div class="view-logo-container-modal">
+                    <div class="view-logo">CONFIRMACIÓN</div>
+                </div>
+                <div class="view-logo-frame-modal"></div>
+                <div class="form-card-modal">
+                    <div class="content-div">
+                        <p class="txt-confirm-baja">¿Seguro que quiere dar de baja?</p>
+                    </div>
+                    <div class="buttons">
+                        <button class="button -green" (click)="ngxSmartModalService.getModal('modalInception').close()">Dar Baja</button>
+                        <button class="button -dark" (click)="ngxSmartModalService.getModal('modalInception').close()">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

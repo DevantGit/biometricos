@@ -12,7 +12,10 @@ public class CheckInOutDTO implements Serializable{
 	private String fechaIn;
 	private String fechaOut;
 	private String dateFormat;
-	
+	private String statusIngreso;
+	private Integer regTiempo;
+	private Integer regRetraso;
+	private Integer regFalta;
 	
 	public Integer getUserID() {
 		return userID;
@@ -44,6 +47,29 @@ public class CheckInOutDTO implements Serializable{
 	public void setFechaOut(String fechaOut) {
 		this.fechaOut = fechaOut;
 	}
+	public String getStatusIngreso() {
+		return statusIngreso;
+	}
+	public void setStatusIngreso(String statusIngreso) {
+		this.statusIngreso = statusIngreso;
+	}
+	public Integer getRegTiempo() {
+		return regTiempo;
+	}
+	public void setRegTiempo(Integer regTiempo) {
+		this.regTiempo = regTiempo;
+	}
+	public Integer getRegRetraso() {
+		return regRetraso;
+	}
+	public void setRegRetraso(Integer regRetraso) {
+		this.regRetraso = regRetraso;
+	}
+	public Integer getRegFalta() {
+		return regFalta;
+	}
+	public void setRegFalta(Integer regFalta) {
+		this.regFalta = regFalta;
+	}
 	
-
 }

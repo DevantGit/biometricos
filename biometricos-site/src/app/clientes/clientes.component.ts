@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Cliente } from './cliente';
 import { ClienteService } from './cliente.service';
-import { Assistence } from './Assistence';
-import { CheckInOut } from './CheckInOut';
 import { UserDevant } from './UserDevant';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { AlertService } from 'ngx-alerts';
 import * as $ from 'jquery';
 import { HttpHeaders  } from '@angular/common/http';
+import { NgxSmartModalService } from 'ngx-smart-modal';
+import { ModalSettingsComponent } from '../modal/modal-settings/modal-settings.component';
 
 @Component({
   selector: 'app-clientes',
@@ -16,6 +16,9 @@ import { HttpHeaders  } from '@angular/common/http';
 })
 export class ClientesComponent implements OnInit {
 
+  @ViewChild(ModalSettingsComponent) modalSettings: ModalSettingsComponent;
+
+  
   clientes: Cliente;
   userDevant = new UserDevant();
   userClit : any;
@@ -35,8 +38,9 @@ export class ClientesComponent implements OnInit {
   dateTwo: string;
   userIDValue: string;
   imgSerach: boolean = false;
+  button: boolean;
 
-  constructor(private clienteService: ClienteService, private ngxService: NgxUiLoaderService,private alertService: AlertService) { }
+  constructor(private clienteService: ClienteService, private ngxService: NgxUiLoaderService,private alertService: AlertService, public ngxSmartModalService: NgxSmartModalService) { }
 
   ngOnInit() {
     this.nuevaConsulta;
@@ -45,9 +49,57 @@ export class ClientesComponent implements OnInit {
     this.tab;
     this.imgSerach;
     this.busqueda;
+    this.button = false;
 
     this.cargarUsuarios();
+ 
+  }
+
+  limpiarChecked(){
+    document.addEventListener("click", function () {
+      document.getElementById('infre').removeAttribute('checked');
+      document.getElementById('fabrica').removeAttribute('checked');
+      document.getElementById('torniquetes').removeAttribute('checked');
+    });
+  }
+
+  enviarMensaje(event) {
+    console.log(event.departamento)
+    this.limpiarChecked();
+
+    if(event.departamento == -1){
+      document.addEventListener("click", function () {
+        document.getElementById('torniquetes').removeAttribute('checked');
+        document.getElementById('infre').removeAttribute('checked');
+        document.getElementById('fabrica').removeAttribute('checked');  
+      });
+    }else if(event.departamento == 19){
+      document.addEventListener("click", function () {
+        document.getElementById('infre').setAttribute('checked','checked');
+        document.getElementById('torniquetes').removeAttribute('checked');
+        document.getElementById('fabrica').removeAttribute('checked');
+      });
+    }else if(event.departamento == 20){
+      document.addEventListener("click", function () {
+        document.getElementById('fabrica').setAttribute('checked','checked');
+        document.getElementById('infre').setAttribute('checked','checked');
+        document.getElementById('torniquetes').removeAttribute('checked');
+      });
+    }else if(event.departamento == 21){
+      document.addEventListener("click", function () {
+        document.getElementById('torniquetes').setAttribute('checked','checked');
+        document.getElementById('infre').setAttribute('checked','checked');
+        document.getElementById('fabrica').removeAttribute('checked');
+      });
+    }else if(event.departamento == 22){
+      document.addEventListener("click", function () {
+        document.getElementById('torniquetes').setAttribute('checked','checked');
+        document.getElementById('infre').setAttribute('checked','checked');
+        document.getElementById('fabrica').removeAttribute('checked');
+      });
+    }
     
+    this.modalSettings.mostrar(event);
   }
 
   public cargarUsuarios(){
@@ -55,7 +107,7 @@ export class ClientesComponent implements OnInit {
     this.busqueda=false;
     this.clienteService.getClientes().subscribe( data => {
       this.clientes = data.body;
-      console.log(data.status);
+      console.log(this.clientes);
       this.ngxService.stop();
     },error=>{
       this.alertService.danger('Rango de fechas seleccionadas es invalida');

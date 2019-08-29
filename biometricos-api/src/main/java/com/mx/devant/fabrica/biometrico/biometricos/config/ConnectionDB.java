@@ -28,7 +28,7 @@ public class ConnectionDB {
 	
 	public boolean establecerConexion() {
 		try {
-			conexion=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\Equipo\\Documents\\Aplicacion Biometrico\\ATT2000.MDB");
+			conexion=DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\Equipo\\Documents\\biometrico\\ATT2000.MDB");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
@@ -59,6 +59,12 @@ public class ConnectionDB {
 		ResultSet rs;
 		rs = this.sentencia.executeQuery(sql);
 		return rs;
+	}
+	
+	public int ejecutarINSERTSentencia(String sql) throws SQLException {
+		sentencia = conexion.createStatement();
+		int result = sentencia.executeUpdate(sql);
+		return result;
 	}
 	
 }

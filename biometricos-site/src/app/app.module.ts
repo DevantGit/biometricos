@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
+import { TimePickerModule } from '@syncfusion/ej2-angular-calendars';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent} from './footer/footer.component';
@@ -13,17 +14,25 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilterPipe } from './filter.pipe';
 import { InicioAppComponent } from './inicio-app/inicio-app.component';
 import { NgxUiLoaderModule } from  'ngx-ui-loader';
-
+import { AltaComponent } from './alta/alta.component';
+import { DirectivaService } from './directiva/directiva.service';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
- 
-// Import your library
 import { AlertModule } from 'ngx-alerts';
+import { AltaService } from './alta/alta.service';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
+import { ModalSettingsComponent } from './modal/modal-settings/modal-settings.component';
+import { ModalConfirmComponent } from './modal/modal-confirm/modal-confirm.component';
+import { ClientesAsistenciaComponent } from './clientes-asistencia/clientes-asistencia.component';
+import { ClientesAsistenciaRangoComponent } from './clientes-asistencia-rango/clientes-asistencia-rango.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
-  {path: 'directiva', component: DirectivaComponent},
-  {path: 'inicio', component: FooterComponent},
-  {path: 'clientes', component: ClientesComponent}
+  {path: 'dashboard-asistencia', component: DirectivaComponent},
+  {path: 'inicio', component: InicioAppComponent},
+  {path: 'clientes', component: ClientesComponent},
+  {path: 'clientes-asistencia', component: ClientesAsistenciaComponent},
+  {path: 'clientes-asistencia-rangos', component: ClientesAsistenciaRangoComponent},
+  {path: 'alta', component: AltaComponent }
 ];
 
 @NgModule({
@@ -33,8 +42,13 @@ const routes: Routes = [
     FooterComponent,
     DirectivaComponent,
     ClientesComponent,
+    AltaComponent,
     FilterPipe,
-    InicioAppComponent
+    InicioAppComponent,
+    ModalSettingsComponent,
+    ModalConfirmComponent,
+    ClientesAsistenciaComponent,
+    ClientesAsistenciaRangoComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -42,11 +56,13 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     DatePickerModule,
+    TimePickerModule,
     NgxUiLoaderModule,
     AlertModule.forRoot(),
+    NgxSmartModalModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
-  providers: [ClienteService],
+  providers: [ClienteService, DirectivaService, AltaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

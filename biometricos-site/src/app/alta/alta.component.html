@@ -1,0 +1,111 @@
+<app-header></app-header>
+<div class="view-logo-container">
+    <div class="view-logo">REPORTE DE RESGISTROS</div>
+</div>
+<div class="view-logo-frame"></div>
+<div class="form-container">
+    <div class="form-card">
+
+        <div class=" content-div">
+
+
+            <div class="info-personal">
+                <p class="txt-info">Información Personal
+                    <img src="../../assets/close.svg" alt="" class="img-close" routerLink="/clientes">
+                </p>
+            </div>
+
+            <div class="info-txt">
+                <div class="row contenedor-personal">
+                    <div class="content-img col-md-2">
+                        <img src="../../assets/karime.jpg" class="img-user">
+                    </div>
+                    <div class="content-plus">
+                        <img src="../../assets/grupo.svg" class="img-add">
+                    </div>
+                    <div class="content-datos col-md-10">
+                        <div class="cabecera">
+                            <p class="txt-dev txt-name">Nombre: </p>
+                            <input type="text" autofocus id="nombreDevant" class="form-control label-name txt-dev" placeholder="Ingrese nombre del colaborador" [(ngModel)]="nombre">
+                        </div>
+                    </div>
+
+                    <div class=" col-md-2">
+                    </div>
+                    <div class="content-datos2 col-md-10">
+                        <div class="cabecera">
+                            <p class="txt-dev txt-name">F. Nacimiento: </p>
+                            <div class="col-md-2 txt-dev" id="fecha">
+                                <ejs-datepicker id='fchNacimiento' class="fecha" locale='es-MX' [(ngModel)]="fechaNacimiento" format='dd/MM/yyyy'></ejs-datepicker>
+                                <!-- <input id="fchNacimiento"  type="text" placeholder="dd/mm/aaaa" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly="readonly" [(ngModel)]="fechaNacimiento"> -->
+                            </div>
+
+                            <p class="txt-dev txt-name txt-sexo">Sexo: </p>
+                            <select id="sexo" class=" txt-name txt-dev combo" [(ngModel)]="sexo">
+                                <option selected value="Masculin">Masculino</option>
+                                <option value="Femenino">Femenino</option>
+                            </select>
+                            <p class="txt-dev no-imss txt-name">N° IMSS: </p>
+                            <input type="number" id="no_imss" class="form-control txt-dev label-imss" placeholder="Ingrese n° IMSS" [(ngModel)]="no_imss">
+                        </div>
+                    </div>
+
+                    <div class=" col-md-2">
+                    </div>
+                    <div class="content-datos3 col-md-10">
+                        <div class="cabecera">
+                            <p class="txt-dev txt-name">Direccion: </p>
+                            <input type="text" id="direccion" class="form-control label-name txt-dev" placeholder="Ingrese dirección del colaborador" [(ngModel)]="direccion">
+                        </div>
+                    </div>
+
+                    <div class=" col-md-2">
+                    </div>
+                    <div class="content-datos3 col-md-10">
+                        <div class="cabecera">
+                            <p class="txt-dev  txt-name">Tel. Casa: </p>
+                            <input type="number" id="tel_casa" class="form-control label-casa txt-dev" placeholder="Ingrese tel. de casa" [(ngModel)]="tel_casa">
+                            <p class="txt-dev txt-name txt-celular ">Celular: </p>
+                            <input type="number" id="tel_cel" class="form-control label-celular txt-dev" placeholder="Ingrese tel. celular" [(ngModel)]="tel_celular">
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="info-personal">
+                    <p class="txt-info">Información Laboral</p>
+                </div>
+                <div class="row">
+                    <div class=" content-3">
+                        <div class="content-datos3 col-md-12 cabecera">
+
+                            <p class="txt-dev txt-name txt-ingreso">Fecha Ingreso: </p>
+                            <div class="col-md-2 txt-dev" id="fecha">
+                                <ejs-datepicker id='fchIngreso' autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="fecha" locale='es-MX' [(ngModel)]="fechaIngreso" format='dd/MM/yyyy'></ejs-datepicker>
+                                <!-- <input id="fchIngreso" class="fecha" type="text" placeholder="dd/mm/aaaa" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" readonly="readonly" [(ngModel)]="fechaIngreso"> -->
+                            </div>
+
+                            <p class="txt-dev txt-area txt-name ">Área: </p>
+                            <input type="text" id="area_devant" class="form-control txt-dev label-id txt-area" placeholder="Ingrese área de trabajo" [(ngModel)]="area_devant">
+
+
+                            <p class="txt-dev txt-name txt-puesto">Puesto: </p>
+                            <input type="text" id="puesto_devant" class="txt-dev label-puesto label-id form-control" placeholder="Puesto de trabajo" [(ngModel)]="puesto_devant">
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+        <div class="content-guardar">
+            <button class="btn-guardar " (click)="altaUsuarioDevant();">GUARDAR</button>
+        </div>
+    </div>
+</div>
