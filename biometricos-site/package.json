@@ -27,7 +27,7 @@
     "chart.js": "^2.8.0",
     "cldr-data": "^35.1.0",
     "core-js": "^2.4.1",
-    "highcharts": "^4.2.1",
+    "highcharts": "^7.2.2",
     "jquery": "^3.4.1",
     "jquery-ui-dist": "^1.12.1",
     "ngx-alerts": "^2.1.0",
