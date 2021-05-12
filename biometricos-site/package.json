@@ -24,7 +24,7 @@
     "@syncfusion/ej2-angular-calendars": "^17.2.35",
     "@types/jquery.blockui": "0.0.28",
     "bootstrap": "^4.0.0-beta.2",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "cldr-data": "^35.1.0",
     "core-js": "^2.4.1",
     "highcharts": "^4.2.1",
